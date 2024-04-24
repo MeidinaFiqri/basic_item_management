@@ -4,6 +4,7 @@ import { useRef } from "react"
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import 'dotenv/config'
 
 export default function addItem(){
     const priceRef = useRef();
@@ -17,7 +18,7 @@ export default function addItem(){
         if(!name || !price) return alert('Please fill all the fields')
 
         try {            
-            await axios.post('http://localhost:8020/input-item', {
+            await axios.post(process.env.API_HOST+`/input-item`, {
                 name,
                 price
             })

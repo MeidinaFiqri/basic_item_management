@@ -3,13 +3,14 @@ import Link from "next/link";
 import {useRouter} from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import 'dotenv/config'
 
 export default function viewItems(){
     const router = useRouter();
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8020/get-items')
+        axios.get(process.env.API_HOST+'/get-items')
         .then(res => {
             setItems(res.data)
         })
@@ -17,7 +18,7 @@ export default function viewItems(){
 
 
     const deleteItem = (id) => {
-        axios.delete(`http://localhost:8020/delete-item/${id}`)
+        axios.delete(process.env.API_HOST+`/delete-item/${id}`)
         .then(res => {
             console.log(res.data)
             setItems(items.filter(item => item.id !== id))

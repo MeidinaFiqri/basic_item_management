@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import 'dotenv/config'
 
 export default function page({params : {id}}){
     const nameRef = useRef();
@@ -10,7 +11,7 @@ export default function page({params : {id}}){
     const router = useRouter();
 
     useEffect(() => {
-        axios.get(`http://localhost:8020/get-items/${id}`)
+        axios.get(process.env.API_HOST+ `/get-items/${id}`)
         .then(res => {
             nameRef.current.value = res.data[0].name;
             priceRef.current.value = res.data[0].price;
@@ -24,7 +25,7 @@ export default function page({params : {id}}){
         if(!name || !price) return alert('Please fill all the fields')
 
         try {            
-            await axios.put(`http://localhost:8020/update-item/${id}`, {
+            await axios.put(process.env.API_HOST+`/update-item/${id}`, {
                 name,
                 price
             })
