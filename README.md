@@ -32,7 +32,7 @@ npm i
 ---
 **4. You need to import the sql file in the directory to mysql**
 ```
-mysql -u [username] -p item_management > database.sql
+mysql -u [username] -p item_management < database.sql
 ```
 ---
 **5. Go to backend directory and run the program**
