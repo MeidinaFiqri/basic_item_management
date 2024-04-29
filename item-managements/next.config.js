@@ -1,5 +1,5 @@
 module.exports = {
     env: {
-        API_HOST: `http://127.0.0.1:8020`
+        API_HOST: `http://172.19.1.227:8020`
     },
   }
