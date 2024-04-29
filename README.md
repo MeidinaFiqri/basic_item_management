@@ -3,7 +3,7 @@
 
 This is basic crud app, read this message for the installation step.
 
-**HOW TO INSTALL THIS APP**
+
 
 ---
 
@@ -12,8 +12,35 @@ This is basic crud app, read this message for the installation step.
 ```
 1. Node Js Version >= 18.17 (include with NPM)
 2. mysql
+3. git
 ```
 
+**Installation nodejs, mysql and git**
+```
+sudo apt install nodejs mysql-server git
+```
+
+**Preparing Database**
+
+**1. Create Database User**
+```
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+```
+
+**2. Allow user to accress database**
+```
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost';
+FLUSH PRIVILEGES;
+```
+**Preparing Nodejs**
+
+```
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+```
+
+**Installation**
 ___
 **1. First you need to clone this repository**
 ```
